@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery mapit plugin examples</title>
+    <style type="text/css">
+      body {
+        color: #666;
+        font: normal normal normal 12px/18px 'Lucida Grande', Arial, sans-serif;
+        margin: 0 auto;
+        width: 630px;
+      }
+      h1, h2 {
+        font-weight: bold;
+      }
+      h1 {
+        border-bottom: 1px #ececec solid;
+        font-size: 26px;
+        line-height: 35px;
+        margin-bottom: 18px;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 36px;
+        margin-bottom: 18px;
+      }
+      p {
+        margin-bottom: 18px;
+      }
+      div.map {
+        height: 360px;
+        margin: 0 auto 18px auto;
+        width: 450px;
+      }
+      pre {
+        border: 1px #ececec solid;
+        margin: 0 auto 18px auto;
+        overflow: auto;
+        overflow-y: hidden;
+        padding: 18px;
+        width: 414px;
+      }
+      code {
+      }
+    </style>
+    <script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=false'></script>
+    <script src="http://www.google.com/jsapi"></script>
+    <script>
+      google.load("jquery", "1.4.1");
+    </script>
+    <script type="text/javascript" src="chili/jquery.chili-2.2.js"></script>
+    <script type="text/javascript" src="chili/recipes.js"></script>    
+    <script type='text/javascript' src='jquery.mapit.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $.ajax({
+          url: "locations.json",
+          dataType: "json",
+          async: false,
+          success: function(data) {
+            locations = data;
+          }
+        });
+
+        $("#map-simple").mapit();
+
+        $("#map-simple-center").mapit({
+          latitude: 33.455953,
+          longitude: -111.924827
+        });
+
+        $("#map-simple-data").mapit({
+          data: locations
+        });
+
+        $("#map-advanced").mapit({
+          data: locations,
+          latitude: 33.502183,
+          longitude: -111.997032,
+          zoom: 10,
+          title: function() {},
+          html: function() {},
+          mapType: "hybrid",
+          icon: {
+            image: "restaurant.png"
+          },
+          title: function(item) {
+            return "" + item.name + "";
+          },
+          html: function(item) {
+            return "<p>" + item.name + "</p> <p> " + item.address + "<br />" + item.city + ", " + item.state + " " + item.zip_code + "</p><p>" + item.phone_number + "</p>";
+          }
+        });
+      });
+    </script>
+  </head>
+  
+  <body>
+    <h1>jQuery mapit plugin examples</h1>
+  
+    <p>The plugin without any options, which shows a map using all default settings.</p>
+
+    <pre><code class="js">$("#map-simple").mapit();</code></pre>
+
+    <div id="map-simple" class="map"></div>
+
+    <p>The plugin with center location passed only. This will center the map based on the latitude/longitude given. All other settings are plugin defaults.</p>
+
+    <pre><code class="js">$("#map-simple-center").mapit({
+    latitude: 33.455953,
+    longitude: -111.924827
+});</code></pre>
+
+    <div id="map-simple-center" class="map"></div>
+
+    <p>The plugin called with only a set of locations. This will plot out markers for those locations. All other settings are plugin defaults.</p>
+
+    <pre><code class="js">$("#map-simple-data").mapit({
+    data: locations
+});</code></pre>
+
+    <div id="map-simple-data" class="map"></div>
+
+    <p>Advanced plugin demo. Utilizes most of the options and shows most of the functionality of the plugin.</p>
+
+    <pre><code class="js">$("#map-advanced").mapit({
+    data: locations,
+    latitude: 33.502183,
+    longitude: -111.997032,
+    zoom: 10,
+    title: function() {},
+    html: function() {},
+    mapType: "hybrid",
+    icon: {
+      image: "restaurant.png"
+    },
+    title: function(item) {
+      return "" + item.name + "";
+    },
+    html: function(item) {
+      return "&lt;p&gt;" + item.name + "&lt;/p&gt; &lt;p&ht; " + item.address + "&lt;br /&gt;" + item.city + ", " + item.state + " " + item.zip_code + "&lt;/p&gt;&lt;p&gt;" + item.phone_number + "&lt;/p&gt;";
+    }
+});</code></pre>
+
+    <div id="map-advanced" class="map"></div>
+  </body>
+</html>
