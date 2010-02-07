@@ -24,7 +24,7 @@ Since this just creates an empty map of the US, options must be passed to add de
 
 ## Examples
 
-[http://github.com/geetarista/jquery.mapit/tarball/master](Download the project), then open examples.html in your browser to see a few examples.
+[Download the project](http://github.com/geetarista/jquery.mapit/tarball/master), then open examples.html in your browser to see a few examples.
 
 ## Options
 
