@@ -69,10 +69,6 @@ A hash containing options for marker icons. See below for actual options.
     icon.image ('http://www.google.com/mapfiles/marker.png')
 Reference to an image that is used for your markers.
 
-## Examples
-
-Download examples.html and view it in your browser.
-
 ## License
 
 jQuery mapit is under by the MIT License. See LICENSE for more information.
