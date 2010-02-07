@@ -14,11 +14,11 @@ First, include jQuery, the Google Map JavaScript API, and this plugin:
 
 Next, include a div that will hold the map:
 
-  <div id='map'></div>
+    <div id='map'></div>
 
 Now just call the mapit function on a DOM element. It is usually best to do this once the document is ready.
 
-  $("#map").mapit();
+    $("#map").mapit();
 
 Since this just creates an empty map of the US, options must be passed to add desired functionality.
 
