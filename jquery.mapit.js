@@ -1,6 +1,6 @@
 /**
  * jQuery mapit Plugin
- * Version: 1.0.0
+ * Version: 1.0.1
  * URL: http://github.com/geetarista/jquery.mapit
  * Description: Easy integration with Google Maps (JS API V3).
  * Usage: See README for more information.
@@ -105,10 +105,14 @@
               infowindow.setContent(htmlArray[i]);
               infowindow.open(map, marker);
             });
+
+            // Event listener to close infowindow when map is clicked
+            google.maps.event.addListener(map, "click", function(){
+              infowindow.close();
+            });
           }
         }); // end $.each function
       }
-
     }); // end return this.each function
   }; // end $.fn.mapit
 
