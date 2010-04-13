@@ -1,7 +1,7 @@
 /**
- * jQuery mapit Plugin
+ * jQuery mapfu Plugin
  * Version: 1.0.1
- * URL: http://github.com/geetarista/jquery.mapit
+ * URL: http://github.com/geetarista/jquery.mapfu
  * Description: Easy integration with Google Maps (JS API V3).
  * Usage: See README for more information.
  * Requires: jQuery 1.3 or higher (may work below 1.3; just not tested)
@@ -13,10 +13,10 @@
 
 (function($) {
 
-  $.fn.mapit = function(options) {
+  $.fn.mapfu = function(options) {
 
     // Set up opts hash
-    var opts = $.extend({}, $.fn.mapit.defaults, options);
+    var opts = $.extend({}, $.fn.mapfu.defaults, options);
 
     // Cycle through each DOM element invoked with plugin
     return this.each(function() {
@@ -114,10 +114,10 @@
         }); // end $.each function
       }
     }); // end return this.each function
-  }; // end $.fn.mapit
+  }; // end $.fn.mapfu
 
   // Set plugin defaults
-  $.fn.mapit.defaults = {
+  $.fn.mapfu.defaults = {
     latitude: null,
     longitude: null,
     navigationControl: true,
@@ -131,6 +131,6 @@
 		},
     html: function() {},
     title: function() {}
-  }; // end $.fn.mapit.defaults
+  }; // end $.fn.mapfu.defaults
 
 })(jQuery); // end closure wrapper

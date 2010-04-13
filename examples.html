@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>jQuery mapit plugin examples</title>
+    <title>jQuery mapfu plugin examples</title>
     <style type="text/css">
       body {
         color: #666;
@@ -49,7 +49,7 @@
     </script>
     <script type="text/javascript" src="chili/jquery.chili-2.2.js"></script>
     <script type="text/javascript" src="chili/recipes.js"></script>    
-    <script type='text/javascript' src='jquery.mapit.js'></script>
+    <script type='text/javascript' src='jquery.mapfu.js'></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $.ajax({
@@ -61,18 +61,18 @@
           }
         });
 
-        $("#map-simple").mapit();
+        $("#map-simple").mapfu();
 
-        $("#map-simple-center").mapit({
+        $("#map-simple-center").mapfu({
           latitude: 33.455953,
           longitude: -111.924827
         });
 
-        $("#map-simple-data").mapit({
+        $("#map-simple-data").mapfu({
           data: locations
         });
 
-        $("#map-advanced").mapit({
+        $("#map-advanced").mapfu({
           data: locations,
           latitude: 33.502183,
           longitude: -111.997032,
@@ -93,17 +93,17 @@
   </head>
   
   <body>
-    <h1>jQuery mapit plugin examples</h1>
+    <h1>jQuery mapfu plugin examples</h1>
   
     <p>The plugin without any options, which shows a map using all default settings.</p>
 
-    <pre><code class="js">$("#map-simple").mapit();</code></pre>
+    <pre><code class="js">$("#map-simple").mapfu();</code></pre>
 
     <div id="map-simple" class="map"></div>
 
     <p>The plugin with center location passed only. This will center the map based on the latitude/longitude given. All other settings are plugin defaults.</p>
 
-    <pre><code class="js">$("#map-simple-center").mapit({
+    <pre><code class="js">$("#map-simple-center").mapfu({
     latitude: 33.455953,
     longitude: -111.924827
 });</code></pre>
@@ -112,7 +112,7 @@
 
     <p>The plugin called with only a set of locations. This will plot out markers for those locations. All other settings are plugin defaults.</p>
 
-    <pre><code class="js">$("#map-simple-data").mapit({
+    <pre><code class="js">$("#map-simple-data").mapfu({
     data: locations
 });</code></pre>
 
@@ -120,7 +120,7 @@
 
     <p>Advanced plugin demo. Utilizes most of the options and shows most of the functionality of the plugin.</p>
 
-    <pre><code class="js">$("#map-advanced").mapit({
+    <pre><code class="js">$("#map-advanced").mapfu({
     data: locations,
     latitude: 33.502183,
     longitude: -111.997032,

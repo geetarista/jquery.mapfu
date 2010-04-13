@@ -1,8 +1,8 @@
-# jQUery mapit plugin
+# jQUery mapfu plugin
 
 ## Description
 
-jQuery mapit is a simple plugin to allow easy Google Map creation using version 3 of the JavaScript API. This means that an API key is not needed, but it also means that only features supported in V3 of the API are available to the plugin. Google is continually updating and adding new features to the API. I will continue to add more until the plugin supports all features in the V3 API and hopefully keep up with Google as they make changes.
+jQuery mapfu is a simple plugin to allow easy Google Map creation using version 3 of the JavaScript API. This means that an API key is not needed, but it also means that only features supported in V3 of the API are available to the plugin. Google is continually updating and adding new features to the API. I will continue to add more until the plugin supports all features in the V3 API and hopefully keep up with Google as they make changes.
 
 ## Usage
 
@@ -10,21 +10,21 @@ First, include jQuery, the Google Map JavaScript API, and this plugin:
 
   <script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=false'></script>
   <script type='text/javascript' src='jquery.js'></script>
-  <script type='text/javascript' src='jquery.mapit.js'></script>
+  <script type='text/javascript' src='jquery.mapfu.js'></script>
 
 Next, include a div that will hold the map:
 
     <div id='map'></div>
 
-Now just call the mapit function on a DOM element. It is usually best to do this once the document is ready.
+Now just call the mapfu function on a DOM element. It is usually best to do this once the document is ready.
 
-    $("#map").mapit();
+    $("#map").mapfu();
 
 Since this just creates an empty map of the US, options must be passed to add desired functionality.
 
 ## Examples
 
-[Download the project](http://github.com/geetarista/jquery.mapit/tarball/master), then open examples.html in your browser to see a few examples.
+[Download the project](http://github.com/geetarista/jquery.mapfu/tarball/master), then open examples.html in your browser to see a few examples.
 
 ## Options
 
@@ -75,4 +75,4 @@ Reference to an image that is used for your markers.
 
 ## License
 
-jQuery mapit is under by the MIT License. See LICENSE for more information.
+jQuery mapfu is under by the MIT License. See LICENSE for more information.
