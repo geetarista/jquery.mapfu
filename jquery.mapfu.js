@@ -84,8 +84,47 @@
       // Iterate through data and create a marker for each item
       // TODO: Add further support for icon options
 
-      // If opts.data contains elements
-      if (opts.data.length > 0) {
+      if (opts.directions && (opts.data.length > 1)) {
+        directionsService = new google.maps.DirectionsService();
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        directionsDisplay.setMap(map);
+
+        origin = opts.data[0];
+        destination = opts.data[opts.data.length - 1];
+        startPoint = new google.maps.LatLng(origin[rootKey].lat, origin[rootKey].lng);
+        endPoint = new google.maps.LatLng(destination[rootKey].lat, destination[rootKey].lng);
+
+        mapWaypoints = [];
+        intermediateWaypoints = opts.data.slice(1, opts.data.length - 1);
+        // Only map waypoints if there is more than an origin and destination
+        if (intermediateWaypoints.length > 0) {
+          for(i = 0, len = intermediateWaypoints.length; i < len; i++) {
+            item = intermediateWaypoints[i];
+            mapWaypoints[i] = {
+              location: (new google.maps.LatLng(item[rootKey].lat, item[rootKey].lng)),
+              stopover: true
+            };
+          }
+        }
+
+        // Build the DirectionsRequest object
+        directionsReq = {
+          origin: startPoint,
+          destination: endPoint,
+          waypoints: mapWaypoints,
+          travelMode: google.maps.DirectionsTravelMode.DRIVING
+        };
+        
+        directionsService.route(directionsReq, function(result, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(result);
+          } else {
+            try {
+              console.log("Error: " + status);
+            } catch(e) { alert(status) };
+          }
+        });
+      } else if (opts.data.length > 0) {
         // Iterate through each object found in JSON
         $.each(opts.data, function(i, item) {
           var marker = new google.maps.Marker({
@@ -124,6 +163,7 @@
     mapTypeControl: true,
     scaleControl: false,
 		zoom: 8,
+    directions: false,
     data: [],
 		scrollwheel: true,
     icon: {
