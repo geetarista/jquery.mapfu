@@ -116,7 +116,9 @@
         };
         
         directionsService.route(directionsReq, function(result, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
+          if (opts.directionsResult != null) {
+            opts.directionsResult(result, status, directionsDisplay);
+          } else if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
           } else {
             try {
@@ -164,6 +166,7 @@
     scaleControl: false,
 		zoom: 8,
     directions: false,
+    directionsResult: null,
     data: [],
 		scrollwheel: true,
     icon: {
