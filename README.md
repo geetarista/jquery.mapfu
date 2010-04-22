@@ -69,6 +69,12 @@ A hash containing options for marker icons. See below for actual options.
     icon.image ('http://www.google.com/mapfiles/marker.png')
 Reference to an image that is used for your markers.
 
+    directions (false)
+Instead of showing distinct markers, use the data objects to show waypoints in a route.
+
+    directionsResult (null)
+A callback function which, if specified, will receive the _result_ of the directions request, _status_, and an instance of _DirectionsRenderer_ for rendering the route onto the map. If provided, the route will not be drawn automatically. It is expected that your callback function will at some point call _setDirections(result)_ on the _DirectionsRenderer_ instance.
+
 ## Notes
 
 [Google Maps API V3](http://code.google.com/apis/maps/documentation/v3/)
