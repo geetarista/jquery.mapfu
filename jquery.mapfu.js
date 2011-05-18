@@ -23,9 +23,11 @@
 
       // Set the root key for the json object since it is unkown
       // TODO: See if there is another way to accomplish this
+      
       var keys = [];
-      for (key in opts.data[0]) {
-        keys.push(key);
+      for (var key in opts.data[0]) {
+        if (key)
+          keys.push(key);
       }
       var rootKey = keys[0];
 
@@ -33,7 +35,7 @@
       var htmlArray = [];
 
       // Set latitude and longitude if no option is given
-      if (opts.latitude == null && opts.longitude == null) {
+      if (opts.latitude === null && opts.longitude === null) {
         // Set lat/lng for first object if exists
         if (opts.data.length > 0) {
           opts.latitude = opts.data[0][rootKey].lat;
@@ -52,7 +54,7 @@
         navigationControl: opts.navigationControl,
         mapTypeControl: opts.mapTypeControl,
         scaleControl: opts.scaleControl
-      }
+      };
 
       // Initialize Google Map object
       var map = new google.maps.Map(this, mapOptions);
@@ -116,14 +118,14 @@
         };
         
         directionsService.route(directionsReq, function(result, status) {
-          if (opts.directionsResult != null) {
+          if (opts.directionsResult !== null) {
             opts.directionsResult(result, status, directionsDisplay);
           } else if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
           } else {
             try {
               console.log("Error: " + status);
-            } catch(e) { alert(status) };
+            } catch(e) { alert(status); }
           }
         });
       } else if (opts.data.length > 0) {
