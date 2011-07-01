@@ -4,6 +4,10 @@
 
 jQuery mapfu is a simple plugin to allow easy Google Map creation using version 3 of the JavaScript API. This means that an API key is not needed, but it also means that only features supported in V3 of the API are available to the plugin. Google is continually updating and adding new features to the API. I will continue to add more until the plugin supports all features in the V3 API and hopefully keep up with Google as they make changes.
 
+NOTE: Development has been halted for now. Please check out one of these plugins as a replacement for now:
+    https://github.com/fridek/gmap
+    https://github.com/jbdemonte/gmap3
+
 ## Usage
 
 First, include jQuery, the Google Map JavaScript API, and this plugin:
